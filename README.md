@@ -1,5 +1,5 @@
 HellMode-Discord was made by https://github.io/neonatro/ or https://instagram.com/noelceno_/
 
-This is a modified version of "midnight-discord" by https://github.io/neonatro/.
+This is a modified version of "midnight-discord" by https://github.io/refact0r/.
 
-Big thanks to neonatro and other contributors.
+Big thanks to refact0r and other contributors.
