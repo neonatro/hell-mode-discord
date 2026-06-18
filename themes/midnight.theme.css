@@ -42,14 +42,14 @@ body {
 
     /* dms button options */
     --custom-dms-icon: custom; /* off: use default discord icon, hide: remove icon entirely, custom: use custom icon */
-    --dms-icon-svg-url: url('https://refact0r.github.io/midnight-discord/assets/Font_Awesome_5_solid_moon.svg'); /* icon svg url. MUST BE A SVG. */
+    --dms-icon-svg-url: url('https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@master/svgs/solid/fire.svg'); /* Fire Logo SVG */
     --dms-icon-svg-size: 90%; /* size of the svg (css mask-size property) */
     --dms-icon-color-before: var(--icon-subtle); /* normal icon color */
     --dms-icon-color-after: var(--white); /* icon color when button is hovered/selected */
     --custom-dms-background: off; /* off to disable, image to use a background image (must set url variable below), color to use a custom color/gradient */
     --dms-background-image-url: url(''); /* url of the background image */
     --dms-background-image-size: cover; /* size of the background image (css background-size property) */
-    --dms-background-color: linear-gradient(70deg, var(--blue-2), var(--purple-2), var(--red-2)); /* fixed color/gradient (css background property) */
+    --dms-background-color: linear-gradient(70deg, var(--red-4), var(--red-2), var(--red-1)); /* Red gradient */
 
     /* background image options */
     --background-image: off; /* off: no background image, on: enable background image (must set url variable below) */
@@ -57,15 +57,15 @@ body {
 
     /* transparency/blur options */
     /* NOTE: TO USE TRANSPARENCY/BLUR, YOU MUST HAVE TRANSPARENT BG COLORS. FOR EXAMPLE: --bg-4: hsla(220, 15%, 10%, 0.7); */
-    --transparency-tweaks: off; /* off: no changes, on: remove some elements for better transparency */
-    --remove-bg-layer: off; /* off: no changes, on: remove the base --bg-3 layer for use with window transparency (WILL OVERRIDE BACKGROUND IMAGE) */
-    --panel-blur: off; /* off: no changes, on: blur the background of panels */
-    --blur-amount: 12px; /* amount of blur */
+    --transparency-tweaks: on; /* on to show gradient */
+    --remove-bg-layer: on; /* on to remove default solid background */
+    --panel-blur: on; /* on for frosted glass effect */
+    --blur-amount: 16px; /* slightly increased for better look with gradients */
     --bg-floating: var(--bg-3); /* set this to a more opaque color if floating panels look too transparent. only applies if panel blur is on  */
 
     /* chatbar options */
-    --custom-chatbar: off; /* off: default chatbar, separated: chatbar separated from chat */
-    --chatbar-height: 47px; /* height of the chatbar (56px by default, 47px to align with user panel, 56px recommended for separated) */
+    --custom-chatbar: separated; /* separated for a more unique, modern look */
+    --chatbar-height: 56px; /* 56px recommended for separated chatbar */
 
     /* other options */
     --small-user-panel: on; /* off: default user panel, on: smaller user panel like in old discord */
@@ -75,55 +75,55 @@ body {
 :root {
     --colors: on; /* off: discord default colors, on: midnight custom colors */
 
-    /* text colors */
+    /* text colors - CHANGED: Brightened significantly for much better readability */
     --text-0: var(--bg-4); /* text on colored elements */
-    --text-1: hsl(220, 45%, 95%); /* other normally white text */
-    --text-2: hsl(220, 25%, 70%); /* headings and important text */
-    --text-3: hsl(220, 20%, 60%); /* normal text */
-    --text-4: hsl(220, 15%, 40%); /* icon buttons and channels */
-    --text-5: hsl(220, 15%, 25%); /* muted channels/chats and timestamps */
+    --text-1: hsl(0, 0%, 100%); /* pure white text */
+    --text-2: hsl(0, 0%, 90%); /* headings and important text */
+    --text-3: hsl(0, 0%, 80%); /* normal text */
+    --text-4: hsl(0, 0%, 65%); /* icon buttons and channels */
+    --text-5: hsl(0, 0%, 45%); /* muted channels/chats and timestamps */
 
     /* background and dark colors */
-    --bg-1: hsla(220, 15%, 20%, 1); /* dark buttons when clicked */
-    --bg-2: hsla(220, 15%, 16%, 1); /* dark buttons */
-    --bg-3: hsla(220, 15%, 13%, 1); /* spacing, secondary elements */
-    --bg-4: hsla(220, 15%, 10%, 1); /* main background color */
-    --hover: hsla(221, 19%, 40%, 0.1); /* channels and buttons when hovered */
-    --active: hsla(220, 19%, 40%, 0.2); /* channels and buttons when clicked or selected */
-    --active-2: hsla(220, 19%, 40%, 0.3); /* extra state for transparent buttons */
-    --message-hover: hsla(220, 0%, 0%, 0.1); /* messages when hovered */
+    --bg-1: hsla(0, 0%, 15%, 1); /* dark buttons when clicked */
+    --bg-2: hsla(0, 0%, 12%, 1); /* dark buttons */
+    --bg-3: hsla(0, 0%, 8%, 1); /* spacing, secondary elements */
+    --bg-4: hsla(0, 0%, 0%, 0.55); /* CHANGED: slightly darker transparent black to make text pop more */
+    --hover: hsla(0, 100%, 40%, 0.1); /* channels and buttons when hovered */
+    --active: hsla(0, 100%, 40%, 0.2); /* channels and buttons when clicked or selected */
+    --active-2: hsla(0, 100%, 40%, 0.3); /* extra state for transparent buttons */
+    --message-hover: hsla(0, 0%, 0%, 0.2); /* messages when hovered */
 
     /* accent colors */
-    --accent-1: var(--blue-1); /* links and other accent text */
-    --accent-2: var(--blue-2); /* small accent elements */
-    --accent-3: var(--blue-3); /* accent buttons */
-    --accent-4: var(--blue-4); /* accent buttons when hovered */
-    --accent-5: var(--blue-5); /* accent buttons when clicked */
-    --accent-new: var(--accent-2); /* stuff that's normally red like mute/deafen buttons */
-    --mention: linear-gradient(to right, color-mix(in hsl, var(--accent-2), transparent 90%) 40%, transparent); /* background of messages that mention you */
-    --mention-hover: linear-gradient(to right, color-mix(in hsl, var(--accent-2), transparent 95%) 40%, transparent); /* background of messages that mention you when hovered */
-    --reply: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 90%) 40%, transparent); /* background of messages that reply to you */
-    --reply-hover: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 95%) 40%, transparent); /* background of messages that reply to you when hovered */
+    --accent-1: var(--red-1); 
+    --accent-2: var(--red-2); 
+    --accent-3: var(--red-3); 
+    --accent-4: var(--red-4); 
+    --accent-5: var(--red-5); 
+    --accent-new: var(--red-2); 
+    --mention: linear-gradient(to right, color-mix(in hsl, var(--red-2), transparent 85%) 40%, transparent); 
+    --mention-hover: linear-gradient(to right, color-mix(in hsl, var(--red-2), transparent 90%) 40%, transparent); 
+    --reply: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 85%) 40%, transparent); 
+    --reply-hover: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 90%) 40%, transparent); 
 
     /* status indicator colors */
-    --online: var(--green-2); /* change to #40a258 for default */
-    --dnd: var(--red-2); /* change to #d83a41 for default */
-    --idle: var(--yellow-2); /* change to #cc954c for default */
-    --streaming: var(--purple-2); /* change to ##9147ff for default */
-    --offline: var(--text-4); /* change to #82838b for default offline color */
+    --online: var(--green-2); 
+    --dnd: var(--red-2); 
+    --idle: var(--yellow-2); 
+    --streaming: var(--purple-2); 
+    --offline: var(--text-4); 
 
     /* border colors */
-    --border-light: var(--hover); /* general light border color */
-    --border: var(--active); /* general normal border color */
-    --border-hover: var(--active); /* border color of panels when hovered */
-    --button-border: hsl(220, 0%, 100%, 0.1); /* neutral border color of buttons */
+    --border-light: var(--hover); 
+    --border: var(--active); 
+    --border-hover: var(--active); 
+    --button-border: hsl(0, 0%, 100%, 0.1); 
 
-    /* base colors */
-    --red-1: oklch(75% 0.12 0);
-    --red-2: oklch(70% 0.12 0);
-    --red-3: oklch(65% 0.12 0);
-    --red-4: oklch(60% 0.12 0);
-    --red-5: oklch(55% 0.12 0);
+    /* base colors - CHANGED: Shifted OKLCH hue from 0 to 25 to remove pink tint, creating a true deep red */
+    --red-1: oklch(75% 0.18 25);
+    --red-2: oklch(70% 0.18 25);
+    --red-3: oklch(65% 0.18 25);
+    --red-4: oklch(60% 0.18 25);
+    --red-5: oklch(55% 0.18 25);
 
     --green-1: oklch(75% 0.11 170);
     --green-2: oklch(70% 0.11 170);
@@ -137,15 +137,48 @@ body {
     --blue-4: oklch(60% 0.1 215);
     --blue-5: oklch(55% 0.1 215);
 
-    --yellow-1: oklch(80% 0.11 90);
-    --yellow-2: oklch(75% 0.11 90);
-    --yellow-3: oklch(70% 0.11 90);
-    --yellow-4: oklch(65% 0.11 90);
-    --yellow-5: oklch(60% 0.11 90);
+    --yellow-1: oklch(80% 0.13 85);
+    --yellow-2: oklch(75% 0.13 85);
+    --yellow-3: oklch(70% 0.13 85);
+    --yellow-4: oklch(65% 0.13 85);
+    --yellow-5: oklch(60% 0.13 85);
 
     --purple-1: oklch(75% 0.11 310);
     --purple-2: oklch(70% 0.11 310);
     --purple-3: oklch(65% 0.11 310);
     --purple-4: oklch(60% 0.11 310);
     --purple-5: oklch(55% 0.11 310);
+}
+
+/* --- CUSTOM BLACK TO RED BACKGROUND GRADIENT --- */
+body, #app-mount, .app-mount, .appMount_ea7e65 {
+    background: linear-gradient(to bottom, #050505 0%, #4a0000 100%) !important;
+}
+
+/* --- CUSTOM FIRE ANIMATION --- */
+
+/* Idle State: Slow, subtle breathing */
+@keyframes fire-idle {
+    0% { filter: drop-shadow(0 0 2px var(--red-4)); transform: scale(1); }
+    50% { filter: drop-shadow(0 0 6px var(--red-2)); transform: scale(1.03); }
+    100% { filter: drop-shadow(0 0 2px var(--red-4)); transform: scale(1); }
+}
+
+/* Active State: Rapid, flickering burn with slight yellow highlights */
+@keyframes fire-burn {
+    0% { filter: drop-shadow(0 -1px 4px var(--red-1)); transform: scale(1.1) rotate(-2deg); }
+    33% { filter: drop-shadow(0 -3px 8px var(--yellow-3)); transform: scale(1.15) rotate(2deg); }
+    66% { filter: drop-shadow(0 -2px 6px var(--red-2)); transform: scale(1.12) rotate(-1deg); }
+    100% { filter: drop-shadow(0 -4px 10px var(--yellow-2)); transform: scale(1.18) rotate(1deg); }
+}
+
+/* Apply idle animation by default */
+[data-list-item-id="guildsnav___home"] {
+    animation: fire-idle 3s infinite ease-in-out;
+}
+
+/* Apply aggressive burn animation ONLY when hovered or actively selected */
+[data-list-item-id="guildsnav___home"]:hover,
+[data-list-item-id="guildsnav___home"]:has([class*="selected"]) {
+    animation: fire-burn 0.4s infinite alternate ease-in-out !important;
 }
